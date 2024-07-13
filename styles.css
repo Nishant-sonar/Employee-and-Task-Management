@@ -1,0 +1,219 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.heading-container {
+    background: linear-gradient(45deg, #3498db, #8e44ad);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.main-heading {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #3498db;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Update these button styles in your styles.css file */
+
+.btn {
+    border-width: 2px;
+    border-style: solid;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 8px 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    border-color: #4e54c8;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #3a3f9e, #7276c7);
+    border-color: #3a3f9e;
+}
+
+.btn-warning {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    border-color: #ff9966;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(to right, #ff7e47, #ff4247);
+    border-color: #ff7e47;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #fc466b, #3f5efb);
+    border-color: #fc466b;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(to right, #fc2b56, #2a4df8);
+    border-color: #fc2b56;
+}
+
+/* Add this new style for a success button, if needed */
+.btn-success {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    border-color: #11998e;
+    color: white;
+}
+
+.btn-success:hover {
+    background: linear-gradient(to right, #0e7d6e, #2dd168);
+    border-color: #0e7d6e;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table thead th {
+    border-bottom: 2px solid #3498db;
+    color: #3498db;
+    font-weight: 600;
+    background: linear-gradient(to right, #ecf0f1, #bdc3c7);
+}
+
+.table tbody tr {
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.table tbody tr:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 15px;
+    border: none;
+}
+
+#employeeInfoContent {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#employeeInfoContent h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+#employeeInfoContent ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#employeeInfoContent ul li {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.table-responsive {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        max-height: 300px;
+    }
+}
+
+/* Adjust these existing styles */
+.table td, .table th {
+    vertical-align: middle;
+    padding: 0.75rem;
+    border: none;
+}
+
+.table tbody tr {
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+/* Add this new style for the main heading */
+/* .main-heading {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+} */

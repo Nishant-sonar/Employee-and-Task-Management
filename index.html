@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee and Task Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="heading-container">
+        <h1 class="main-heading">Employee and Task Management</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Employee Management</h2>
+                    <input type="text" id="employeeName" class="form-control mb-2" placeholder="Employee Name">
+                    <input type="text" id="employeeRole" class="form-control mb-2" placeholder="Employee Role">
+                    <button onclick="addEmployee()" class="btn btn-primary">Add Employee</button>
+                    <table id="employeeTable" class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Task Management</h2>
+                    <form id="taskForm">
+                        <input type="text" id="taskDescription" class="form-control mb-2"
+                            placeholder="Task Description">
+                        <select id="assignedTo" class="form-select mb-2"></select>
+                        <input type="datetime-local" id="taskStarted" class="form-control mb-2">
+                        <input type="datetime-local" id="taskEnded" class="form-control mb-2">
+                        <select id="taskPriority" class="form-select mb-2">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                        <button type="button" onclick="addTask()" class="btn btn-primary">Add Task</button>
+                    </form>
+                    <div class="table-responsive mt-3">
+                        <table id="taskTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Assigned To</th>
+                                    <th>Started</th>
+                                    <th>Ended</th>
+                                    <th>Priority</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Employee Information and Assigned Tasks</h2>
+                        <select id="employeeInfoSelect" class="form-select mb-3" onchange="showEmployeeInfo()">
+                            <option value="">Select an employee</option>
+                        </select>
+                        <div id="employeeInfoContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
