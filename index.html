@@ -2,93 +2,224 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee and Task Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee and Task Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-light">
 
-    <div class="heading-container">
-        <h1 class="main-heading">Employee and Task Management</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Employee Management</h2>
-                    <input type="text" id="employeeName" class="form-control mb-2" placeholder="Employee Name">
-                    <input type="text" id="employeeRole" class="form-control mb-2" placeholder="Employee Role">
-                    <button onclick="addEmployee()" class="btn btn-primary">Add Employee</button>
-                    <table id="employeeTable" class="table mt-3">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Role</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Task Management</h2>
-                    <form id="taskForm">
-                        <input type="text" id="taskDescription" class="form-control mb-2"
-                            placeholder="Task Description">
-                        <select id="assignedTo" class="form-select mb-2"></select>
-                        <input type="datetime-local" id="taskStarted" class="form-control mb-2">
-                        <input type="datetime-local" id="taskEnded" class="form-control mb-2">
-                        <select id="taskPriority" class="form-select mb-2">
-                            <option value="High">High</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Low">Low</option>
-                        </select>
-                        <button type="button" onclick="addTask()" class="btn btn-primary">Add Task</button>
-                    </form>
-                    <div class="table-responsive mt-3">
-                        <table id="taskTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>Assigned To</th>
-                                    <th>Started</th>
-                                    <th>Ended</th>
-                                    <th>Priority</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
+  <div class="heading-container">
+    <h1 class="main-heading">Employee and Task Management</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Employee Management</h2>
+          <!-- <button class="btn btn-primary mb-3" onclick="showAddEmployeeModal()">Add Employee</button> -->
+          <div class="table-responsive employee-table-container">
+            <table class="table" id="employeeTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h2 class="card-title">Employee Management</h2>
+                        <input type="text" id="employeeName" class="form-control mb-2" placeholder="Employee Name">
+                        <input type="text" id="employeeRole" class="form-control mb-2" placeholder="Employee Role">
+                        <button onclick="addEmployee()" class="btn btn-primary">Add Employee</button>
+                        <table id="employeeTable" class="table mt-3">
+
+                          </thead>
+                          <tbody></tbody>
                         </table>
+                      </div>
                     </div>
-                </div>
-            </div>
+                  </div>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Employee Information and Assigned Tasks</h2>
-                        <select id="employeeInfoSelect" class="form-select mb-3" onchange="showEmployeeInfo()">
-                            <option value="">Select an employee</option>
-                        </select>
-                        <div id="employeeInfoContent"></div>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Task Management</h2>
+          <form id="taskForm">
+            <input type="text" id="taskDescription" class="form-control mb-2" placeholder="Task Description">
+            <select id="assignedTo" class="form-select mb-2"></select>
+            <input type="datetime-local" id="taskStarted" class="form-control mb-2">
+            <input type="datetime-local" id="taskEnded" class="form-control mb-2">
+            <select id="taskPriority" class="form-select mb-2">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button type="button" onclick="addTask()" class="btn btn-primary">Add Task</button>
+          </form>
+          <div class="table-responsive mt-3">
+            <table id="taskTable" class="table">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Assigned To</th>
+                  <th>Started</th>
+                  <th>Ended</th>
+                  <th>Priority</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Employee Information and Assigned Tasks</h2>
+            <select id="employeeInfoSelect" class="form-select mb-3" onchange="showEmployeeInfo()">
+              <option value="">Select an employee</option>
+            </select>
+            <div id="employeeInfoContent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" aria-labelledby="updateEmployeeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateEmployeeModalLabel">Update Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateEmployeeForm">
+            <input type="hidden" id="updateEmployeeId">
+            <div class="mb-3">
+              <label for="updateEmployeeName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="updateEmployeeName" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateEmployeeRole" class="form-label">Role</label>
+              <input type="text" class="form-control" id="updateEmployeeRole" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="saveUpdatedEmployee()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateTaskModal" tabindex="-1" aria-labelledby="updateTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateTaskModalLabel">Update Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateTaskForm">
+            <input type="hidden" id="updateTaskIndex">
+            <div class="mb-3">
+              <label for="updateTaskDescription" class="form-label">Description</label>
+              <input type="text" class="form-control" id="updateTaskDescription" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateTaskAssignedTo" class="form-label">Assigned To</label>
+              <select class="form-select" id="updateTaskAssignedTo" required>
+
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="updateTaskStarted" class="form-label">Started</label>
+              <input type="datetime-local" class="form-control" id="updateTaskStarted" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateTaskEnded" class="form-label">Ended</label>
+              <input type="datetime-local" class="form-control" id="updateTaskEnded" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateTaskPriority" class="form-label">Priority</label>
+              <select class="form-select" id="updateTaskPriority" required>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="saveUpdatedTask()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" aria-labelledby="updateEmployeeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateEmployeeModalLabel">Update Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateEmployeeForm">
+            <input type="hidden" id="updateEmployeeId">
+            <div class="mb-3">
+              <label for="updateEmployeeName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="updateEmployeeName" required>
+            </div>
+            <div class="mb-3">
+              <label for="updateEmployeeRole" class="form-label">Role</label>
+              <input type="text" class="form-control" id="updateEmployeeRole" required>
+            </div>
+          </form>
+          <div id="fetchedEmployeeInfo" class="mt-3"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="saveUpdatedEmployee()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="data.js"></script>
 </body>
 
 </html>
