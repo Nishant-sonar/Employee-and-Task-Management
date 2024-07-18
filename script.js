@@ -221,8 +221,6 @@ function showEmployeeInfo() {
     }
 }
 
-// ... (previous code remains the same)
-
 function addTask() {
     const description = document.getElementById('taskDescription').value;
     const assignedTo = document.getElementById('assignedTo').value;
@@ -279,11 +277,10 @@ function loadTasks() {
     }
 }
 
-// Call this function when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadEmployees();
     loadTasks();
-    // ... (other initialization code)
+ 
 });
 function updateEmployeeTable() {
     const tableBody = document.querySelector('#employeeTable tbody');
