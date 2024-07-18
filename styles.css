@@ -47,6 +47,7 @@ body {
     padding-bottom: 10px;
 }
 
+
 .btn {
     border-width: 2px;
     border-style: solid;
@@ -88,6 +89,7 @@ body {
     border-color: #fc2b56;
 }
 
+/* Add this new style for a success button, if needed */
 .btn-success {
     background: linear-gradient(to right, #11998e, #38ef7d);
     border-color: #11998e;
@@ -133,6 +135,7 @@ body {
     padding: 15px;
     border: none;
 }
+
 
 #employeeInfoContent {
     margin-top: 20px;
@@ -205,3 +208,25 @@ body {
     transition: all 0.2s ease;
 }
 
+.employee-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .table {
+    width: 100%;
+    min-width: 650px; 
+  }
+  
+  .table th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .employee-table-container {
+      max-height: 200px;
+    }
+  }
